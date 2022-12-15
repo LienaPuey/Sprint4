@@ -53,7 +53,13 @@ function orderByYear(array) {
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory(array, category) {
-
+  let movieGenre = array.filter((movie)=> movie.genre.includes(category) && movie.score !== isNaN);
+  let averageGenre = movieGenre.reduce((acc, movie)=> {
+    acc+= movie.score;
+    return acc;
+  }, 0);
+  let score = Number((averageGenre / movieGenre.length).toFixed(2));
+  return score;
 
 }
 
